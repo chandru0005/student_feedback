@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const API_BASE_URL = 'https://student-feedback-5vha.onrender.com/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -77,7 +79,7 @@ export const adminApi = {
   deleteFeedback: (id) => api.delete(`/admin/feedback/${id}`),
   getSettings: () => api.get('/admin/settings'),
   updateSettings: (data) => api.put('/admin/settings', data),
-  exportReportUrl: (format) => `/api/admin/export?format=${format}`
+  exportReportUrl: (format) => `${API_BASE_URL}/admin/export?format=${format}`
 };
 
 export default api;
